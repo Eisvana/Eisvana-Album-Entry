@@ -32,14 +32,14 @@ import Logo from '../components/Logo.vue';
         route="/sandworm"
         title="Sandworm"
       />
-      <NavLink
+      <!-- <NavLink
         route="/flora"
         title="Flora"
       />
       <NavLink
         route="/planet"
         title="Planet"
-      />
+      /> -->
       <NavLink
         route="/artifact"
         title="Artifact"
@@ -91,5 +91,9 @@ import Logo from '../components/Logo.vue';
   font-size: 1.5rem;
   margin-inline: auto;
   margin-block: 3rem;
+
+  & > :last-child {
+    grid-column: 2;
+  }
 }
 </style>

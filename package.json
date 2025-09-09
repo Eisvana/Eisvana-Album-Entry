@@ -11,17 +11,17 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "pinia": "^3.0.2",
+    "pinia": "^3.0.3",
     "simple-image-compressor": "^1.8.2",
-    "vue": "^3.5.14",
+    "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@types/node": "^22.15.19",
-    "@vitejs/plugin-vue": "^5.2.4",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vue-tsc": "^2.2.10"
+    "@types/node": "^24.3.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5",
+    "vue-tsc": "^3.0.6"
   }
 }
