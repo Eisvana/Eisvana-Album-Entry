@@ -29,19 +29,19 @@ watchEffect(() => {
         <div>
           <label for="username">Discoverer</label>
           <input
-            class="required"
-            type="text"
-            id="username"
             v-model="discoverer.value"
+            class="required"
+            id="username"
+            type="text"
           />
         </div>
 
         <div>
           <label for="redditUsername">Discoverer Reddit Name (if available)</label>
           <input
-            type="text"
-            id="redditUsername"
             v-model="discovererReddit.value"
+            id="redditUsername"
+            type="text"
           />
         </div>
       </div>
@@ -54,19 +54,18 @@ watchEffect(() => {
         >Your Username (Discord, Reddit, etc.) for Contact</label
       >
       <input
-        type="text"
-        id="docUsername"
         v-model="contact.value"
+        id="docUsername"
+        type="text"
       />
     </div>
 
     <div class="textarea-wrapper">
       <label for="notes">Additional Notes for the Wiki Scholar Team</label>
       <textarea
+        v-model="notes.value"
         class="textarea"
         id="notes"
-        type="text"
-        v-model="notes.value"
       ></textarea>
     </div>
   </div>

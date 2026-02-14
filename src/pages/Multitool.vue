@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch, watchEffect } from 'vue';
+import { computed, watch, watchEffect } from 'vue';
 import ClassSelect from '../components/ClassSelect.vue';
 import CoordinateInput from '../components/CoordinateInput.vue';
 import LocationPlanetInput from '../components/LocationPlanetInput.vue';
@@ -22,8 +22,6 @@ const {
   isValidSlots,
 } = storeToRefs(catalogueDataStore);
 
-const subtypeSelect = ref<HTMLSelectElement | null>();
-
 const isOnPlanet = computed(() => locationType.value.value !== 'space station');
 const srIsOnPlanet = computed(() => saveReloadLocationType.value.value !== 'space station');
 
@@ -34,11 +32,11 @@ watchEffect(() => {
 
 watchEffect(() => (saveReloadLocationName.value.isActive = srIsOnPlanet.value));
 
-const planetaryTools: MTType[] = ['Atlantid', 'Royal', 'Sentinel'];
-const tieredMTs: MTType[] = ['Standard', 'Alien', 'Experimental'];
+const planetaryTools = new Set<MTType>(['Atlantid', 'Royal', 'Sentinel']);
+const tieredMTs = new Set<MTType>(['Standard', 'Alien', 'Experimental']);
 
-const isInvalidLocation = computed(() => !isOnPlanet.value && planetaryTools.includes(mtType.value.value));
-const isTieredMT = computed(() => tieredMTs.includes(mtType.value.value));
+const isInvalidLocation = computed(() => !isOnPlanet.value && planetaryTools.has(mtType.value.value));
+const isTieredMT = computed(() => tieredMTs.has(mtType.value.value));
 
 watch(isInvalidLocation, (newValue) => {
   if (newValue) locationType.value.value = 'planet';
@@ -48,7 +46,7 @@ watchEffect(() => (subtype.value.isActive = isTieredMT.value));
 
 watch(mtType, (newType, oldType) => {
   if (
-    (!tieredMTs.includes(newType.value) && tieredMTs.includes(oldType.value)) ||
+    (!tieredMTs.has(newType.value) && tieredMTs.has(oldType.value)) ||
     (newType.value === 'Experimental' && subtype.value.value === 'SMG')
   ) {
     subtype.value.value = '';
@@ -75,10 +73,7 @@ watchEffect(() => (slots.value.isValid = isValidSlots.value));
 
     <div v-show="isTieredMT">
       <label class="required">Subtype</label>
-      <select
-        v-model="subtype.value"
-        ref="subtypeSelect"
-      >
+      <select v-model="subtype.value">
         <option
           v-if="isTieredMT"
           value="Rifle"
@@ -109,7 +104,7 @@ watchEffect(() => (slots.value.isValid = isValidSlots.value));
       <select v-model="locationType.value">
         <option
           value="space station"
-          v-if="!planetaryTools.includes(mtType.value)"
+          v-if="!planetaryTools.has(mtType.value)"
         >
           Space Station
         </option>
