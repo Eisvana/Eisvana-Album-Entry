@@ -77,7 +77,7 @@ export function useRequiredFields() {
       standardFields
         .filter((field) => fields[field].isActive)
         .every((field) => fields[field].value && fields[field].isValid !== false) &&
-      ((isValidDiscoverer.value && isValidGlyphs.value) || isArtifact.value)
+      ((isValidDiscoverer.value && isValidGlyphs.value) || isArtifact.value),
   );
 
   return { isValidData };

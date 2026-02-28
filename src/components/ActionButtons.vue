@@ -190,7 +190,7 @@ function buildFormData() {
           filename: fileName,
         },
       ],
-    })
+    }),
   );
 
   return formData;

@@ -198,10 +198,10 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
           state.locationName.value,
           state.economy.value,
           state.isCrashed.value,
-          state.tier.value
+          state.tier.value,
         ),
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     freighter: (state) =>
       albumEntry(
@@ -209,7 +209,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         `<br>${state.economy.value} - ${state.systemFaction.value}`,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     frigate: (state) =>
       albumEntry(
@@ -217,7 +217,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         state.tier.value,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     multitool: (state) =>
       albumEntry(
@@ -233,8 +233,8 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
           state.saveReloadLocationName.value,
           state.locationName.value,
           state.saveReloadLocationType.value,
-          state.locationType.value
-        )
+          state.locationType.value,
+        ),
       ),
     creature: (state) =>
       albumEntry(
@@ -242,7 +242,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         `(${state.size.value}m)`,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     sandworm: (state) =>
       albumEntry(
@@ -250,7 +250,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         `(${state.depth.value}ku)<br>Stomach: ${state.stomach.value}`,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     flora: (state) =>
       albumEntry(
@@ -258,7 +258,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         undefined,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     planet: (state) =>
       albumEntry(
@@ -266,7 +266,7 @@ export const useCatalogueDataStore = defineStore('catalogueData', {
         state.name.value,
         state.features.value,
         state.glyphs.value,
-        discovererParm(state.discovererReddit.value, state.discoverer.value)
+        discovererParm(state.discovererReddit.value, state.discoverer.value),
       ),
     artifact: (state) =>
       `{{Artifact

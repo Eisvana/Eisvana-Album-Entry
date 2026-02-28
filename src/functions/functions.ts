@@ -6,7 +6,7 @@ export function albumEntry(
   other: string = '',
   glyphs: string,
   discoverer: string,
-  additionalInfo: string = ''
+  additionalInfo: string = '',
 ) {
   // NoSonar this is fine
   return `| {{album | file=${file} | name=${name} | other=${other} | glyph=${glyphs} | ${discoverer} }} ${additionalInfo}`;
@@ -24,7 +24,7 @@ export function addInfoMt(
   srLocName: string,
   mtLocName: string,
   srLocType: StellarLocation,
-  mtLocType: StellarLocation
+  mtLocType: StellarLocation,
 ): string {
   const srOnStation = 'S/r on the space station';
   const srOnPlanet = `S/r on ${srLocType} [[${srLocName}]]`;
@@ -51,7 +51,7 @@ export function starshipOther(
   locName: string,
   economy: string,
   isCrashed: boolean,
-  tier: Tiers
+  tier: Tiers,
 ) {
   const hasCoords = `<br>[[${locName}]] (${coordinates})`;
   const hasEconomy = `<br>${economy}`;
