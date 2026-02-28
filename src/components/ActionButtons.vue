@@ -46,7 +46,7 @@ const { isValidData } = useRequiredFields();
 
 const emit = defineEmits(['reset']);
 
-const albumStrings: { [key: string]: string } = reactive({
+const albumStrings: Record<string, string> = reactive({
   starship,
   freighter,
   frigate,
@@ -88,7 +88,7 @@ async function handleCatalogueEntrySubmission() {
   } catch (error) {
     sendFailed.value = true;
     console.warn(error);
-    currentStage.value = error instanceof Error ? error.message : 'Something went wrong';
+    currentStage.value = Error.isError(error) ? error.message : 'Something went wrong';
   } finally {
     isSending.value = false;
     setTimeout(() => {

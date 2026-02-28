@@ -40,9 +40,7 @@ export function useRequiredFields() {
   const { isArtifact } = useIsArtifact();
 
   const fields: {
-    [key: string]: {
-      [key: string]: string | File | null | boolean;
-    };
+    [key: string]: Record<string, string | File | null | boolean>;
   } = reactive({
     name,
     file,

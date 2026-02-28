@@ -9,7 +9,7 @@ const { size, isValidSize } = storeToRefs(catalogueDataStore);
 function updateSize(e: Event) {
   if (!(e.target instanceof HTMLInputElement)) return;
   const inputValue = e.target.value;
-  const num = parseFloat(inputValue);
+  const num = Number.parseFloat(inputValue);
   const isNegative = inputValue.startsWith('-');
   size.value.value = (isNegative ? '-' : '') + Math.abs(num).toFixed(1);
   size.value.isValid = isValidSize.value;

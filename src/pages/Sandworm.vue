@@ -9,7 +9,7 @@ const { depth, stomach, isValidDepth } = storeToRefs(catalogueDataStore);
 function updateDepth(e: Event) {
   if (!(e.target instanceof HTMLInputElement)) return;
   const inputValue = e.target.value;
-  const num = parseFloat(inputValue);
+  const num = Number.parseFloat(inputValue);
   depth.value.value = num.toFixed(1);
   depth.value.isValid = isValidDepth.value;
 }

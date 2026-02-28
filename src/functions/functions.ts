@@ -1,4 +1,4 @@
-import type { StellarLocation, ShipType, Tiers } from '../types/catalogue';
+import type { ShipType, StellarLocation, Tiers } from '../types/catalogue';
 
 export function albumEntry(
   file: string,
@@ -13,8 +13,9 @@ export function albumEntry(
 }
 
 export function discovererParm(discovererReddit: string, discoverer: string) {
-  if (discovererReddit && discoverer && discovererReddit !== discoverer)
+  if (discovererReddit && discoverer && discovererReddit !== discoverer) {
     return `redditA=${discovererReddit} | redditD=${discoverer}`;
+  }
   if (discovererReddit) return `reddit=${discovererReddit}`;
   return `discoverer=${discoverer}`;
 }
@@ -64,4 +65,4 @@ export function starshipOther(
   return hasEconomy;
 }
 
-export const checkNumberString = (num: string) => !isNaN(parseFloat(num)) || !num;
+export const checkNumberString = (num: string) => !Number.isNaN(Number.parseFloat(num)) || !num;
