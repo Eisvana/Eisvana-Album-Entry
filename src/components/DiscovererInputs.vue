@@ -73,7 +73,8 @@ watchEffect(() => {
 
 <style scoped>
 .textarea-wrapper {
-  width: 100%;
+  width: min(100%, 10rem);
+
   .textarea {
     resize: vertical;
   }
