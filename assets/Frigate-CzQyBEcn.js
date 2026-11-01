@@ -1,0 +1,1 @@
+import{f as e,h as t,v as n,x as r,y as i}from"./index-Cn0Pi6Ox.js";import{t as a}from"./ClassSelect-BaHo1XPP.js";var o={class:"input-group"},s=i({__name:"Frigate",setup:s=>(s,i)=>(r(),t("div",o,[e("div",null,[n(a)])]))});export{s as default};
