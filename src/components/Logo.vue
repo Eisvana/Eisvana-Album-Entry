@@ -21,7 +21,11 @@ defineProps<{
 </template>
 
 <style scoped>
-.logo:focus {
-  background-color: unset;
+.logo {
+  max-width: 250px;
+
+  &:focus {
+    background-color: unset;
+  }
 }
 </style>
