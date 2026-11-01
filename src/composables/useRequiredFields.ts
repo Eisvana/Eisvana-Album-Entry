@@ -40,9 +40,7 @@ export function useRequiredFields() {
   const { isArtifact } = useIsArtifact();
 
   const fields: {
-    [key: string]: {
-      [key: string]: string | File | null | boolean;
-    };
+    [key: string]: Record<string, string | File | null | boolean>;
   } = reactive({
     name,
     file,
@@ -77,7 +75,7 @@ export function useRequiredFields() {
       standardFields
         .filter((field) => fields[field].isActive)
         .every((field) => fields[field].value && fields[field].isValid !== false) &&
-      ((isValidDiscoverer.value && isValidGlyphs.value) || isArtifact.value)
+      ((isValidDiscoverer.value && isValidGlyphs.value) || isArtifact.value),
   );
 
   return { isValidData };

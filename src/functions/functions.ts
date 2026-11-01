@@ -1,4 +1,4 @@
-import type { StellarLocation, ShipType, Tiers } from '../types/catalogue';
+import type { ShipType, StellarLocation, Tiers } from '../types/catalogue';
 
 export function albumEntry(
   file: string,
@@ -6,15 +6,16 @@ export function albumEntry(
   other: string = '',
   glyphs: string,
   discoverer: string,
-  additionalInfo: string = ''
+  additionalInfo: string = '',
 ) {
   // NoSonar this is fine
   return `| {{album | file=${file} | name=${name} | other=${other} | glyph=${glyphs} | ${discoverer} }} ${additionalInfo}`;
 }
 
 export function discovererParm(discovererReddit: string, discoverer: string) {
-  if (discovererReddit && discoverer && discovererReddit !== discoverer)
+  if (discovererReddit && discoverer && discovererReddit !== discoverer) {
     return `redditA=${discovererReddit} | redditD=${discoverer}`;
+  }
   if (discovererReddit) return `reddit=${discovererReddit}`;
   return `discoverer=${discoverer}`;
 }
@@ -24,7 +25,7 @@ export function addInfoMt(
   srLocName: string,
   mtLocName: string,
   srLocType: StellarLocation,
-  mtLocType: StellarLocation
+  mtLocType: StellarLocation,
 ): string {
   const srOnStation = 'S/r on the space station';
   const srOnPlanet = `S/r on ${srLocType} [[${srLocName}]]`;
@@ -51,7 +52,7 @@ export function starshipOther(
   locName: string,
   economy: string,
   isCrashed: boolean,
-  tier: Tiers
+  tier: Tiers,
 ) {
   const hasCoords = `<br>[[${locName}]] (${coordinates})`;
   const hasEconomy = `<br>${economy}`;
@@ -64,4 +65,4 @@ export function starshipOther(
   return hasEconomy;
 }
 
-export const checkNumberString = (num: string) => !isNaN(parseFloat(num)) || !num;
+export const checkNumberString = (num: string) => !Number.isNaN(Number.parseFloat(num)) || !num;
